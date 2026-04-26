@@ -21,6 +21,9 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/alerts', require('./routes/alerts'));
+app.use('/api/responders', require('./routes/responders'));
+app.use('/api/admin', require('./routes/admin'));
 
 // Basic route
 app.get('/api/health', (req, res) => {

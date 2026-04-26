@@ -10,8 +10,8 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
-// Dashboard imports (to be implemented)
-// import UserDashboard from './pages/user/UserDashboard';
+// Dashboard imports
+import UserDashboard from './pages/user/UserDashboard';
 // import ResponderDashboard from './pages/responder/ResponderDashboard';
 // import AdminDashboard from './pages/admin/AdminDashboard';
 
@@ -36,7 +36,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Register />} />
       
       {/* Protected Routes placeholder */}
-      {/* <Route path="/dashboard/*" element={<ProtectedRoute allowedRoles={['user']}><UserDashboard /></ProtectedRoute>} /> */}
+      <Route path="/dashboard/*" element={<ProtectedRoute allowedRoles={['user']}><UserDashboard /></ProtectedRoute>} />
       {/* <Route path="/responder/*" element={<ProtectedRoute allowedRoles={['responder']}><ResponderDashboard /></ProtectedRoute>} /> */}
       {/* <Route path="/admin/*" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} /> */}
     </Routes>

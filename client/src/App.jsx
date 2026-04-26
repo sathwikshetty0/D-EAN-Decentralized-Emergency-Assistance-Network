@@ -13,7 +13,11 @@ import Register from './pages/Register';
 // Dashboard imports
 import UserDashboard from './pages/user/UserDashboard';
 import ResponderDashboard from './pages/responder/ResponderDashboard';
-// import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AlertMonitor from './pages/admin/AlertMonitor';
+import ResponderManagement from './pages/admin/ResponderManagement';
+import UserManagement from './pages/admin/UserManagement';
+import SystemLogs from './pages/admin/SystemLogs';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
@@ -35,10 +39,14 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       
-      {/* Protected Routes placeholder */}
+      {/* Protected Routes */}
       <Route path="/dashboard/*" element={<ProtectedRoute allowedRoles={['user']}><UserDashboard /></ProtectedRoute>} />
       <Route path="/responder/*" element={<ProtectedRoute allowedRoles={['responder']}><ResponderDashboard /></ProtectedRoute>} />
-      {/* <Route path="/admin/*" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} /> */}
+      <Route path="/admin" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} />
+      <Route path="/admin/alerts" element={<ProtectedRoute allowedRoles={['admin']}><AlertMonitor /></ProtectedRoute>} />
+      <Route path="/admin/responders" element={<ProtectedRoute allowedRoles={['admin']}><ResponderManagement /></ProtectedRoute>} />
+      <Route path="/admin/users" element={<ProtectedRoute allowedRoles={['admin']}><UserManagement /></ProtectedRoute>} />
+      <Route path="/admin/logs" element={<ProtectedRoute allowedRoles={['admin']}><SystemLogs /></ProtectedRoute>} />
     </Routes>
   );
 };

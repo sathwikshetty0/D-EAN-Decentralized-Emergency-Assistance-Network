@@ -32,6 +32,10 @@ app.get('/api/health', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
+// Initialize Socket.io
+const { initSocket } = require('./socket/socketHandler');
+initSocket(server);
+
 server.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
